@@ -105,6 +105,38 @@ pytest
 
 ---
 
+
+---
+
+---
+
+## 🧱 Repository Structure
+
+This repository is organized to keep **experiments reproducible** (configs + manifests) while keeping the **core research code modular** (data / models / losses / engine).
+
+```text
+csi-har-unified/
+├─ README.md            # project overview + quickstart
+├─ LICENSE              # license
+├─ CITATION.cff         # citation metadata
+├─ pyproject.toml       # packaging + CLI entry points
+│
+├─ configs/             # experiment configs (YAML)
+├─ docs/                # brief documentation (data / training / API)
+├─ scripts/             # reproduction helpers (bash / slurm)
+├─ .github/workflows/   # CI (lint + tests)
+│
+├─ csihar/              # main library package
+│  ├─ data/             # dataset adapters + manifest loader
+│  ├─ models/           # model definitions (e.g., WiPromptTCN)
+│  ├─ losses/           # losses (InfoNCE, Cheeger surrogate)
+│  ├─ engine/           # training & evaluation loops
+│  └─ cli/              # command-line tools (train / eval / cache)
+│
+└─ tests/               # minimal sanity tests for CI
+
+
+
 ## 🧾 Manifest v2 (JSONL): explicit, reproducible splits
 
 We use JSONL manifests to make splits *explicit* and *shareable*.
